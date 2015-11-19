@@ -1,0 +1,7 @@
+
+// To declare projects as part of a multi-project build use the 'include' method
+include 'common'
+include 'client'
+include 'node'
+
+rootProject.name = 'lab2'

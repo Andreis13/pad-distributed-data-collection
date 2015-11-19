@@ -1,0 +1,54 @@
+
+subprojects {
+    apply plugin: 'java'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compile 'org.slf4j:slf4j-api:1.7.12'
+        compile 'org.json:json:20150729'
+
+        testCompile 'junit:junit:4.12'
+    }
+}
+
+
+project(':common') {
+
+}
+
+project(':client') {
+    apply plugin: 'application'
+
+    mainClassName = 'faf.pad2.client.Client'
+
+    dependencies {
+        compile project(':common')
+    }
+
+    run {
+        standardInput = System.in
+        if(project.hasProperty('args')) {
+            args project.args.split()
+        }
+    }
+}
+
+project(':node') {
+    apply plugin: 'application'
+
+    mainClassName = 'faf.pad2.node.Node'
+
+    dependencies {
+        compile project(':common')
+    }
+
+    run {
+        standardInput = System.in
+        if(project.hasProperty('args')) {
+            args project.args.split()
+        }
+    }
+}
