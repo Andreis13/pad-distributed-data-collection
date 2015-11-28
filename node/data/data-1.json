@@ -1,0 +1,104 @@
+[
+  {
+    "first_name" : "Florida",
+    "last_name" : "Jude",
+    "department" : "Corporate Relations",
+    "salary" : 100
+  },
+  {
+    "first_name" : "Rose",
+    "last_name" : "Seddon",
+    "department" : "Information Technology",
+    "salary" : 0
+  },
+  {
+    "first_name" : "Tona",
+    "last_name" : "Overcash",
+    "department" : "Corporate Relations",
+    "salary" : 200
+  },
+  {
+    "first_name" : "Valda",
+    "last_name" : "Balcom",
+    "department" : "Sales",
+    "salary" : 1600
+  },
+  {
+    "first_name" : "Emmy",
+    "last_name" : "Wherry",
+    "department" : "Public Relations",
+    "salary" : 1800
+  },
+  {
+    "first_name" : "Tyesha",
+    "last_name" : "Muller",
+    "department" : "Marketing",
+    "salary" : 700
+  },
+  {
+    "first_name" : "Yun",
+    "last_name" : "Ottley",
+    "department" : "Information Technology",
+    "salary" : 800
+  },
+  {
+    "first_name" : "Juliana",
+    "last_name" : "Showers",
+    "department" : "Production & Manufacturing",
+    "salary" : 1600
+  },
+  {
+    "first_name" : "Danyel",
+    "last_name" : "Caddy",
+    "department" : "Production & Manufacturing",
+    "salary" : 400
+  },
+  {
+    "first_name" : "Nadine",
+    "last_name" : "Mcgeorge",
+    "department" : "Finance & Accounting",
+    "salary" : 200
+  },
+  {
+    "first_name" : "Dawn",
+    "last_name" : "Sarkisian",
+    "department" : "Sales",
+    "salary" : 800
+  },
+  {
+    "first_name" : "Lucien",
+    "last_name" : "Hartle",
+    "department" : "Administration",
+    "salary" : 100
+  },
+  {
+    "first_name" : "Dewitt",
+    "last_name" : "Wallander",
+    "department" : "Finance & Accounting",
+    "salary" : 1200
+  },
+  {
+    "first_name" : "Bill",
+    "last_name" : "Stowell",
+    "department" : "Research & Development",
+    "salary" : 1700
+  },
+  {
+    "first_name" : "Pearle",
+    "last_name" : "Nuzzo",
+    "department" : "Sales",
+    "salary" : 1300
+  },
+  {
+    "first_name" : "Yolanda",
+    "last_name" : "Oldenburg",
+    "department" : "Corporate Relations",
+    "salary" : 1800
+  },
+  {
+    "first_name" : "Cuc",
+    "last_name" : "Rapoza",
+    "department" : "Administration",
+    "salary" : 700
+  }
+]

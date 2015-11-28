@@ -1,0 +1,182 @@
+[
+  {
+    "first_name" : "Dani",
+    "last_name" : "Moran",
+    "department" : "Research & Development",
+    "salary" : 1900
+  },
+  {
+    "first_name" : "Lee",
+    "last_name" : "Maza",
+    "department" : "Corporate Relations",
+    "salary" : 1400
+  },
+  {
+    "first_name" : "Helen",
+    "last_name" : "Holzinger",
+    "department" : "Corporate Relations",
+    "salary" : 200
+  },
+  {
+    "first_name" : "Senaida",
+    "last_name" : "Schiefelbein",
+    "department" : "Finance & Accounting",
+    "salary" : 200
+  },
+  {
+    "first_name" : "Margarita",
+    "last_name" : "Behrendt",
+    "department" : "Production & Manufacturing",
+    "salary" : 1700
+  },
+  {
+    "first_name" : "Rachel",
+    "last_name" : "Blanc",
+    "department" : "Production & Manufacturing",
+    "salary" : 900
+  },
+  {
+    "first_name" : "Ricki",
+    "last_name" : "Buchler",
+    "department" : "Marketing",
+    "salary" : 1900
+  },
+  {
+    "first_name" : "Eldora",
+    "last_name" : "Klenk",
+    "department" : "Human Resources",
+    "salary" : 700
+  },
+  {
+    "first_name" : "Ginny",
+    "last_name" : "Southard",
+    "department" : "Public Relations",
+    "salary" : 100
+  },
+  {
+    "first_name" : "Antonietta",
+    "last_name" : "Weide",
+    "department" : "Public Relations",
+    "salary" : 1400
+  },
+  {
+    "first_name" : "Lauren",
+    "last_name" : "Rohan",
+    "department" : "Information Technology",
+    "salary" : 500
+  },
+  {
+    "first_name" : "Sonya",
+    "last_name" : "Secrist",
+    "department" : "Finance & Accounting",
+    "salary" : 200
+  },
+  {
+    "first_name" : "Cassie",
+    "last_name" : "Hayslip",
+    "department" : "Production & Manufacturing",
+    "salary" : 100
+  },
+  {
+    "first_name" : "Remona",
+    "last_name" : "Roache",
+    "department" : "Marketing",
+    "salary" : 400
+  },
+  {
+    "first_name" : "Sparkle",
+    "last_name" : "Rosales",
+    "department" : "Public Relations",
+    "salary" : 300
+  },
+  {
+    "first_name" : "Len",
+    "last_name" : "Totman",
+    "department" : "Corporate Relations",
+    "salary" : 1000
+  },
+  {
+    "first_name" : "Elwood",
+    "last_name" : "Bryan",
+    "department" : "Human Resources",
+    "salary" : 1500
+  },
+  {
+    "first_name" : "Travis",
+    "last_name" : "Dwight",
+    "department" : "Sales",
+    "salary" : 900
+  },
+  {
+    "first_name" : "Delbert",
+    "last_name" : "Ullrich",
+    "department" : "Information Technology",
+    "salary" : 1100
+  },
+  {
+    "first_name" : "Levi",
+    "last_name" : "Lenderman",
+    "department" : "Human Resources",
+    "salary" : 1800
+  },
+  {
+    "first_name" : "Mitchel",
+    "last_name" : "Boise",
+    "department" : "Research & Development",
+    "salary" : 200
+  },
+  {
+    "first_name" : "Johnathon",
+    "last_name" : "Gainer",
+    "department" : "Corporate Relations",
+    "salary" : 1800
+  },
+  {
+    "first_name" : "Lamont",
+    "last_name" : "Poplar",
+    "department" : "Production & Manufacturing",
+    "salary" : 600
+  },
+  {
+    "first_name" : "Ezekiel",
+    "last_name" : "Yale",
+    "department" : "Research & Development",
+    "salary" : 100
+  },
+  {
+    "first_name" : "Lucio",
+    "last_name" : "Hollman",
+    "department" : "Human Resources",
+    "salary" : 100
+  },
+  {
+    "first_name" : "Hugh",
+    "last_name" : "Routon",
+    "department" : "Finance & Accounting",
+    "salary" : 1300
+  },
+  {
+    "first_name" : "Alan",
+    "last_name" : "Huerta",
+    "department" : "Marketing",
+    "salary" : 800
+  },
+  {
+    "first_name" : "Frank",
+    "last_name" : "Ohagan",
+    "department" : "Administration",
+    "salary" : 900
+  },
+  {
+    "first_name" : "Jefferson",
+    "last_name" : "Wan",
+    "department" : "Research & Development",
+    "salary" : 0
+  },
+  {
+    "first_name" : "Jarod",
+    "last_name" : "Goulet",
+    "department" : "Marketing",
+    "salary" : 1000
+  }
+]

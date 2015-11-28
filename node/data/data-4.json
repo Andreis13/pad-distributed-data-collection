@@ -1,0 +1,122 @@
+[
+  {
+    "first_name" : "Patricia",
+    "last_name" : "Mccane",
+    "department" : "Finance & Accounting",
+    "salary" : 700
+  },
+  {
+    "first_name" : "Lewis",
+    "last_name" : "Flurry",
+    "department" : "Public Relations",
+    "salary" : 300
+  },
+  {
+    "first_name" : "Kennith",
+    "last_name" : "Pernice",
+    "department" : "Finance & Accounting",
+    "salary" : 700
+  },
+  {
+    "first_name" : "Ellsworth",
+    "last_name" : "Lebowitz",
+    "department" : "Administration",
+    "salary" : 900
+  },
+  {
+    "first_name" : "Adrian",
+    "last_name" : "Midgette",
+    "department" : "Research & Development",
+    "salary" : 1200
+  },
+  {
+    "first_name" : "Conrad",
+    "last_name" : "Eggert",
+    "department" : "Human Resources",
+    "salary" : 800
+  },
+  {
+    "first_name" : "Fausto",
+    "last_name" : "Hatton",
+    "department" : "Research & Development",
+    "salary" : 1900
+  },
+  {
+    "first_name" : "Lincoln",
+    "last_name" : "Salazar",
+    "department" : "Public Relations",
+    "salary" : 500
+  },
+  {
+    "first_name" : "Kurt",
+    "last_name" : "Culbertson",
+    "department" : "Information Technology",
+    "salary" : 500
+  },
+  {
+    "first_name" : "Richard",
+    "last_name" : "Rado",
+    "department" : "Administration",
+    "salary" : 1200
+  },
+  {
+    "first_name" : "Francesco",
+    "last_name" : "Engman",
+    "department" : "Research & Development",
+    "salary" : 200
+  },
+  {
+    "first_name" : "Jacob",
+    "last_name" : "Trollinger",
+    "department" : "Research & Development",
+    "salary" : 1200
+  },
+  {
+    "first_name" : "Leida",
+    "last_name" : "Tice",
+    "department" : "Administration",
+    "salary" : 1200
+  },
+  {
+    "first_name" : "Griselda",
+    "last_name" : "Buster",
+    "department" : "Human Resources",
+    "salary" : 400
+  },
+  {
+    "first_name" : "Trisha",
+    "last_name" : "Brackins",
+    "department" : "Marketing",
+    "salary" : 1100
+  },
+  {
+    "first_name" : "Lilia",
+    "last_name" : "Hebb",
+    "department" : "Production & Manufacturing",
+    "salary" : 1100
+  },
+  {
+    "first_name" : "Nannette",
+    "last_name" : "Bryand",
+    "department" : "Administration",
+    "salary" : 1800
+  },
+  {
+    "first_name" : "Phyllis",
+    "last_name" : "Lutterman",
+    "department" : "Research & Development",
+    "salary" : 1500
+  },
+  {
+    "first_name" : "Hedy",
+    "last_name" : "Koerner",
+    "department" : "Research & Development",
+    "salary" : 1300
+  },
+  {
+    "first_name" : "Emily",
+    "last_name" : "Fujita",
+    "department" : "Finance & Accounting",
+    "salary" : 1700
+  }
+]
