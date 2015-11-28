@@ -14,6 +14,19 @@ import java.net.InetAddress;
  */
 public class NodeInfo implements Serializable {
     
+    @Override
+    public String toString() {
+        StringBuilder s = new StringBuilder();
+        s.append(hostAddress);
+        s.append(":");
+        s.append(dataPort);
+        s.append(" | Neighbours: ");
+        s.append(neighboursCount);
+        s.append(" | Items: ");
+        s.append(dataItemsCount);
+        return s.toString();
+    }
+    
     public InetAddress hostAddress;
     public int dataPort;
     public int neighboursCount;

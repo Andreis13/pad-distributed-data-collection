@@ -12,6 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.util.ArrayList;
+import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -37,14 +38,18 @@ public class Node {
             neighbours.add(ni);
         }
         
+        List<Employee> dataItems = loadData(args[1]);
+        
         NodeInfo thisNodeInfo = new NodeInfo();
         
         thisNodeInfo.hostAddress = InetAddress.getByName(configJson.getString("host"));
         thisNodeInfo.dataPort = configJson.getInt("port");
         thisNodeInfo.neighboursCount = neighbours.size();
+        thisNodeInfo.dataItemsCount = dataItems.size();
         
+
         DistributedDataServer server = new DistributedDataServer(
-                thisNodeInfo, neighbours, loadData(args[1])
+                thisNodeInfo, neighbours, dataItems
         );
         server.start();
         
