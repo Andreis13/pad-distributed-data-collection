@@ -5,4 +5,4 @@ include 'client'
 include 'node'
 include 'validation'
 
-rootProject.name = 'lab2'
+rootProject.name = 'lab4-distributed-collection'
