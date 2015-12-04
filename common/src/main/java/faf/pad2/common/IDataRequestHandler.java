@@ -11,6 +11,8 @@ package faf.pad2.common;
  */
 public interface IDataRequestHandler {
     public void handle(LocalDataRequest r);
+    public void handle(LocalJsonDataRequest r);
     public void handle(NeighbourDataRequest r);
+    public void handle(NeighbourXmlDataRequest r);
     public void handle(RecursiveDataRequest r);
 }

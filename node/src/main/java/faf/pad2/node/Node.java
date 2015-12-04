@@ -48,8 +48,8 @@ public class Node {
         thisNodeInfo.dataItemsCount = dataItems.size();
         
 
-        DistributedDataServer server = new DistributedDataServer(
-                thisNodeInfo, neighbours, dataItems
+        DistributedDataServer<Employee> server = new DistributedDataServer<Employee>(
+                thisNodeInfo, neighbours, dataItems, Employee.class
         );
         server.start();
         

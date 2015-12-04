@@ -3,5 +3,6 @@
 include 'common'
 include 'client'
 include 'node'
+include 'validation'
 
 rootProject.name = 'lab2'

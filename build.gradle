@@ -9,6 +9,7 @@ subprojects {
     dependencies {
         compile 'org.slf4j:slf4j-api:1.7.12'
         compile 'org.json:json:20150729'
+        compile 'com.fasterxml.jackson.core:jackson-databind:2.7.0-rc1'
 
         testCompile 'junit:junit:4.12'
     }
@@ -50,5 +51,14 @@ project(':node') {
         if(project.hasProperty('args')) {
             args project.args.split()
         }
+    }
+}
+
+project('validation') {
+    apply plugin: 'application'
+    mainClassName = 'faf.pad2.validation.Main'
+    
+    dependencies {
+        compile project(':common')
     }
 }

@@ -8,9 +8,12 @@ package faf.pad2.node;
 import faf.pad2.common.IDataRequest;
 import faf.pad2.common.IDataRequestHandler;
 import faf.pad2.common.LocalDataRequest;
+import faf.pad2.common.LocalJsonDataRequest;
 import faf.pad2.common.NeighbourDataRequest;
+import faf.pad2.common.NeighbourXmlDataRequest;
 import faf.pad2.common.NodeInfo;
 import faf.pad2.common.RecursiveDataRequest;
+import faf.pad2.common.XmlCollection;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -34,14 +37,22 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.CollectionType;
+import java.util.List;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 
 /**
  *
  * @author andrew
  */
-public class DistributedDataServer extends Thread {
+public class DistributedDataServer<T extends Serializable> extends Thread {
     
-    public DistributedDataServer(NodeInfo thisNodeInfo, Collection<NodeInfo> neighbours, Collection<? extends Serializable> dataItems) throws IOException {
+    public DistributedDataServer(NodeInfo thisNodeInfo, Collection<NodeInfo> neighbours, Collection<T> dataItems, Class<T> dataType) throws IOException {
+        this.itemDataType = dataType;
         this.serverSocket = new ServerSocket(thisNodeInfo.dataPort);
         this.neighbourNodeInfos = new LinkedBlockingQueue<>(neighbours);
         this.dataItems = new LinkedBlockingQueue<>(dataItems);
@@ -76,6 +87,8 @@ public class DistributedDataServer extends Thread {
             
             dr.accept(new DataDispatcher(client));
             
+            client.close();
+            
         } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(DistributedDataServer.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -103,6 +116,31 @@ public class DistributedDataServer extends Thread {
         }).reduce(dataItems.stream(), (a, b) -> Stream.concat(a, b)).collect(Collectors.toList());
     }
     
+    private Collection getNeighbourDataJson() {
+        return (Collection) neighbourNodeInfos.stream().map((NodeInfo ni) -> {
+            return taskExecutor.submit(() -> {
+                Socket s = new Socket();
+                s.connect(new InetSocketAddress(ni.hostAddress, ni.dataPort));
+
+                ObjectOutput oout = new ObjectOutputStream(s.getOutputStream());
+                oout.writeObject(new LocalJsonDataRequest());
+                
+                ObjectMapper om = new ObjectMapper();
+                final CollectionType javaType = om.getTypeFactory()
+                        .constructCollectionType(List.class, itemDataType);
+                List<T> value = om.readValue(s.getInputStream(), javaType);
+                return (Collection) value;
+            });
+        }).map((f) -> {
+            try {
+                return f.get().stream();
+            } catch (InterruptedException | ExecutionException ex) {
+                Logger.getLogger(DistributedDataServer.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            return Stream.empty();
+        }).reduce(dataItems.stream(), (a, b) -> Stream.concat(a, b)).collect(Collectors.toList());
+    }
+    
     public class DataDispatcher implements IDataRequestHandler {
     
         public DataDispatcher(Socket clientSocket) {
@@ -112,10 +150,18 @@ public class DistributedDataServer extends Thread {
         @Override
         public void handle(LocalDataRequest r) {
             System.out.println("Handle local request");
-            System.out.println("Local data:");
-            System.out.println(dataItems);
             try {
                 sendCollection(dataItems, clientSocket.getOutputStream());
+            } catch (IOException ex) {
+                Logger.getLogger(DistributedDataServer.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        @Override
+        public void handle(LocalJsonDataRequest r) {
+            System.out.println("Handle Json local request");
+            try {
+                sendJsonCollection(dataItems, clientSocket.getOutputStream());
             } catch (IOException ex) {
                 Logger.getLogger(DistributedDataServer.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -127,6 +173,16 @@ public class DistributedDataServer extends Thread {
             try {
                 sendCollection(getNeighbourData(), clientSocket.getOutputStream());
             } catch (IOException ex) {
+                Logger.getLogger(DistributedDataServer.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        @Override
+        public void handle(NeighbourXmlDataRequest r) {
+            System.out.println("Handle Xml neighbour request");
+            try {
+                sendXmlCollection(getNeighbourDataJson(), clientSocket.getOutputStream());
+            } catch (IOException | JAXBException ex) {
                 Logger.getLogger(DistributedDataServer.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -149,11 +205,24 @@ public class DistributedDataServer extends Thread {
             }
         }
         
+        private void sendJsonCollection(Collection coll, OutputStream out) throws IOException {
+            ObjectMapper om = new ObjectMapper();
+            om.writerWithDefaultPrettyPrinter().writeValue(out, coll);
+        }
+        
+        private void sendXmlCollection(Collection coll, OutputStream out) throws IOException, JAXBException {
+            XmlCollection xcoll = new XmlCollection(coll);
+            JAXBContext jaxbContext = JAXBContext.newInstance(XmlCollection.class, itemDataType);
+            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+            jaxbMarshaller.marshal(xcoll, out);
+        }
+        
         private final Socket clientSocket;
     }
 
-    
-    private final BlockingQueue<? extends Serializable> dataItems;
+    private final Class<T> itemDataType;
+    private final BlockingQueue<T> dataItems;
     private final BlockingQueue<NodeInfo> neighbourNodeInfos;
     private final ServerSocket serverSocket;
     private final ExecutorService taskExecutor;

@@ -6,13 +6,21 @@
 package faf.pad2.common;
 
 import java.io.Serializable;
+import javax.xml.bind.annotation.*;
 import org.json.JSONObject;
 
 /**
  *
  * @author andrew
  */
+@XmlRootElement
 public class Employee implements Serializable {
+    public Employee() {
+        this.firstName = "";
+        this.lastName = "";
+        this.department = "";
+        this.salary = 0.0;
+    }
     public Employee(String fn, String ln, String dep, double s) {
         this.firstName = fn;
         this.lastName = ln;
@@ -55,8 +63,12 @@ public class Employee implements Serializable {
         return s.toString();
     }
 
+    @XmlElement
     public String firstName;
+    @XmlElement
     public String lastName;
+    @XmlElement
     public String department;
+    @XmlElement
     public double salary;
 }
